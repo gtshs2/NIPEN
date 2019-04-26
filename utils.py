@@ -120,7 +120,7 @@ def make_records_original(result_path,test_acc_list,test_rmse_list,test_mae_list
     if not os.path.exists(result_path):
         os.makedirs(result_path)
 
-    overview = '../results/' + 'overview.txt'
+    overview = 'results/' + 'overview.txt'
     basic_info = result_path + "basic_info.txt"
     test_record = result_path + "test_record.txt"
 

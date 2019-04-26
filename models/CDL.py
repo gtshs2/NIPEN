@@ -4,7 +4,7 @@ import matplotlib
 matplotlib.use('Agg')
 import time
 import collections
-from utils import evaluation,make_records,SDAE_calculate,variable_save
+from utils import evaluation,make_records_original,SDAE_calculate,variable_save
 
 class CDL():
     def __init__(self, sess, num_user, num_item, num_voca, hidden_neuron,current_time,
@@ -179,10 +179,9 @@ class CDL():
                 self.train_model(epoch_itr)
                 self.test_model(epoch_itr)
 
-        make_records(self.result_path,self.test_acc_list,self.test_rmse_list,self.test_mae_list,self.test_avg_loglike_list,self.current_time,
+        make_records_original(self.result_path,self.test_acc_list,self.test_rmse_list,self.test_mae_list,self.test_avg_loglike_list,self.current_time,
                      self.args,self.model_name,self.data_name,self.train_ratio,self.hidden_neuron,self.random_seed,self.optimizer_method,self.lr)
-        variable_save(self.result_path, self.train_var_list1, self.train_var_list2, self.Estimated_R, self.test_R,
-                      self.test_mask_R)
+
     def train_model(self, epoch_itr):
         start_time = time.time()
         total_batch = int(self.num_item /float(self.batch_size)) + 1

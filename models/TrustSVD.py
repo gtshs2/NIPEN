@@ -4,7 +4,7 @@ import numpy as np
 import os
 import matplotlib
 matplotlib.use('Agg')
-from utils import evaluation,make_records
+from utils import evaluation,make_records_original
 
 class TrustSVD():
     def __init__(self,sess,args,
@@ -93,7 +93,7 @@ class TrustSVD():
                 self.train_model(epoch_itr)
                 self.test_model(epoch_itr)
 
-        make_records(self.result_path,self.test_acc_list,self.test_rmse_list,self.test_mae_list,self.test_avg_loglike_list,self.current_time,
+        make_records_original(self.result_path,self.test_acc_list,self.test_rmse_list,self.test_mae_list,self.test_avg_loglike_list,self.current_time,
                      self.args,self.model_name,self.data_name,self.train_ratio,self.hidden_neuron,self.random_seed,self.optimizer_method,self.lr)
 
     def prepare_model(self):

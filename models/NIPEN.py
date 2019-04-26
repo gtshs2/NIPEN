@@ -1,4 +1,4 @@
-from utils import evaluation,evaluation_not_voting,make_records,SDAE_calculate,VAE_calculate,l2_norm,variable_save
+from utils import evaluation,evaluation_not_voting,make_records,make_records_original,SDAE_calculate,VAE_calculate,l2_norm,variable_save
 from models.contents_network_scale_model import base_model,user_base_model,doc_base_model,user_doc_base_model,without_network_model,only_network_model
 import tensorflow as tf
 import numpy as np
@@ -128,12 +128,10 @@ class NIPEN():
             else:
                 self.train(epoch_itr)
                 self.test(epoch_itr)
-        make_records(self.result_path, self.test_acc_list, self.test_rmse_list, self.test_mae_list,
+        make_records_original(self.result_path, self.test_acc_list, self.test_rmse_list, self.test_mae_list,
                      self.test_avg_loglike_list, self.current_time,
                      self.args, self.model_name, self.data_name, self.test_fold, self.num_topic, self.random_seed,
                      self.optimizer_method, self.nipen_learning_rate)
-        variable_save(self.result_path, self.model_name, self.train_var_list1, self.train_var_list2, self.Estimated_R,
-                      self.test_v_ud, self.mask_test_v_ud)
 
     def prepare_model(self):
         '''==================== placeholder initialization (input / corruption / dropout)  ===================='''

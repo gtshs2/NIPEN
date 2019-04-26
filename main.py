@@ -134,7 +134,7 @@ else:
 G = args.G
 
 date = "0203"
-result_path = '../results/' + data_name + '/' + model_name + '/' + str(test_fold) +  '/' + str(current_time)+"/"
+result_path = 'results/' + data_name + '/' + model_name + '/' + str(test_fold) +  '/' + str(current_time)+"/"
 
 R, mask_R, C, train_R, train_mask_R, test_R, test_mask_R,num_train_ratings,num_test_ratings,\
 user_train_set,item_train_set,user_test_set,item_test_set \

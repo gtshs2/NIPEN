@@ -155,8 +155,8 @@ class NIPEN_tensor_single():
                          self.test_avg_loglike_list, self.current_time,
                          self.args, self.model_name, self.data_name, self.test_fold, self.num_topic, self.random_seed,
                          self.optimizer_method, self.nipen_learning_rate)
-        variable_save(self.result_path, self.model_name, self.train_var_list1, self.train_var_list2,
-                      self.train_var_list3, self.prob_aye, self.test_v_ud, self.mask_test_v_ud)
+        # variable_save(self.result_path, self.model_name, self.train_var_list1, self.train_var_list2,
+        #               self.train_var_list3, self.prob_aye, self.test_v_ud, self.mask_test_v_ud)
 
     def prepare_model(self):
         '''==================== placeholder initialization (input / corruption / dropout)  ===================='''
