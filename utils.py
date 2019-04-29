@@ -29,8 +29,8 @@ def evaluation(test_R,test_mask_R,Estimated_R,num_test_ratings):
     denominator = num_test_ratings
     ACC = numerator / float(denominator)
 
-    a = np.log(Estimated_R)
-    b = np.log(1 - Estimated_R)
+    a = np.log(Estimated_R + 1e-8)
+    b = np.log(1 - Estimated_R + 1e-8)
     a[a == -inf] = 0
     b[b == -inf] = 0
 

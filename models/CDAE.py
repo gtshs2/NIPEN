@@ -114,7 +114,7 @@ class CDAE():
 
         Encoded_X, self.Decoder = SDAE_calculate(self.model_name,corrupted_R, self.layer_structure, self.Weight, self.bias, self.batch_normalization, self.f_act,self.g_act, self.keep_prob,batch_V)
 
-        pre_cost1 = -1 * tf.multiply(corrupted_R, tf.log(self.Decoder)) - tf.multiply((1-corrupted_R) , tf.log(1-self.Decoder))
+        pre_cost1 = -1 * tf.multiply(corrupted_R, tf.log(self.Decoder + 1e-8 )) - tf.multiply((1-corrupted_R) , tf.log(1-self.Decoder + 1e-8 ))
         pre_cost1 = tf.multiply(pre_cost1,corrupted_input_mask_R)
         cost1 = tf.reduce_sum(pre_cost1) / U
 
